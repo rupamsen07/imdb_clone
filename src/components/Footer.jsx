@@ -17,7 +17,7 @@ const Footer = () => {
           <span>Facebook</span>
           <span>Twitter</span>
         </div>
-        
+
         <div className="footer-links">
           <span>Get the IMDb App</span>
           <span>Help</span>
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <div className="amazon-company">an amazon company</div>
-        
+
         <div className="copyright">
           © 1990-{currentYear} by IMDb.com, Inc.
         </div>

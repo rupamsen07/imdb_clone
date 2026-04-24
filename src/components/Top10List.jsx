@@ -14,7 +14,7 @@ const Top10List = ({ movies }) => {
           movies.map((movie, index) => (
             <div key={movie.id} className="top-10-item">
               <span className="rank-number">{index + 1}</span>
-              <Card 
+              <Card
                 title={movie.title}
                 rating={movie.rating}
                 image={movie.image}

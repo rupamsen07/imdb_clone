@@ -11,7 +11,7 @@ const TopNews = ({ news }) => {
       <h2>Top News</h2>
       <div className="card-grid">
         {news.map((item) => (
-          <Card 
+          <Card
             key={item.id}
             title={item.title}
             subTitle={`${item.date} • ${item.source}`}
