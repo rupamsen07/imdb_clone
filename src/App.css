@@ -1,1 +1,108 @@
-@import "tailwindcss";
+/* IMDb Clone Design System */
+:root {
+  --imdb-black: #000000;
+  --imdb-dark: #121212;
+  --imdb-grey: #1f1f1f;
+  --imdb-light-grey: #2c2c2c;
+  --imdb-yellow: #f5c518;
+  --imdb-text: #ffffff;
+  --imdb-text-dim: #b3b3b3;
+  --imdb-blue: #5799ef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--imdb-black);
+  color: var(--imdb-text);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Sections */
+section {
+  padding: 2rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--imdb-yellow);
+  padding-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2 span {
+  font-size: 1.2rem;
+  color: var(--imdb-text-dim);
+  font-weight: normal;
+}
+
+/* Reusable Components */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--imdb-yellow) var(--imdb-grey);
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: var(--imdb-yellow);
+  border-radius: 10px;
+}
+
+/* Buttons */
+.btn {
+  background: var(--imdb-grey);
+  border: none;
+  color: var(--imdb-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: var(--imdb-light-grey);
+}
+
+.btn-primary {
+  background: var(--imdb-yellow);
+  color: var(--imdb-black);
+}
+
+.btn-primary:hover {
+  background: #e2b616;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
