@@ -1,46 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-/**
- * PopularInterests Component
- * Demonstrates: Simple list rendering and static UI.
- */
-const PopularInterests = ({ interests }) => {
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const BASE_URL = 'https://api.themoviedb.org/3';
+
+function PopularInterests() {
+  const [genres, setGenres] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.genres) {
+          setGenres(data.genres);
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log('Error fetching genres:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <section className="section"><p className="loading-text">Loading...</p></section>;
+  }
+
+  if (genres.length === 0) {
+    return (
+      <section className="section">
+        <div className="container">
+          <h2 className="section-title"><span className="title-bar"></span>Popular Interests</h2>
+          <p className="loading-text">⚠️ Add your TMDB API key in the .env file to see genres.</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="container">
-      <h2>Popular Interests</h2>
-      <div className="interests-grid">
-        {interests.map((interest, index) => (
-          <div key={index} className="interest-chip">
-            {interest}
-          </div>
-        ))}
+    <section className="section">
+      <div className="container">
+        <h2 className="section-title">
+          <span className="title-bar"></span>
+          Popular Interests
+          <span className="title-sub">Browse by genre</span>
+        </h2>
+
+        <div className="genre-list">
+          {genres.map((genre) => (
+            <button className="genre-pill" key={genre.id}>
+              {genre.name}
+            </button>
+          ))}
+        </div>
       </div>
-
-      <style>{`
-        .interests-grid {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-        }
-
-        .interest-chip {
-          background: var(--imdb-grey);
-          padding: 0.75rem 1.5rem;
-          border-radius: 50px;
-          border: 1px solid #444;
-          cursor: pointer;
-          transition: all 0.2s;
-          font-weight: 500;
-        }
-
-        .interest-chip:hover {
-          background: var(--imdb-light-grey);
-          border-color: var(--imdb-yellow);
-          color: var(--imdb-yellow);
-        }
-      `}</style>
     </section>
   );
-};
+}
 
 export default PopularInterests;
