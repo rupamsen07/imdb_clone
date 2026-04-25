@@ -1,23 +1,21 @@
 import React from 'react';
-import Card from './Card';
-
 
 const TopNews = ({ news }) => {
   return (
-    <section className="container">
-      <h2>Top News</h2>
-      <div className="card-grid">
+    <>
+      <div className="section-title">Latest News <span>Around the industry</span></div>
+      <div className="news-list">
         {news.map((item) => (
-          <Card
-            key={item.id}
-            title={item.title}
-            subTitle={`${item.date} • ${item.source}`}
-            image={item.image}
-            onClick={() => console.log(`Reading news: ${item.title}`)}
-          />
+          <div className="news-item" key={item.id} onClick={() => console.log(`Reading news: ${item.title}`)}>
+            <div className="news-dot"></div>
+            <div className="news-content">
+              <div className="news-headline">{item.title}</div>
+              <div className="news-meta">{item.source} • {item.date}</div>
+            </div>
+          </div>
         ))}
       </div>
-    </section>
+    </>
   );
 };
 

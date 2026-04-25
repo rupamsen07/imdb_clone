@@ -27,13 +27,11 @@ const TrailerSection = ({ main: initialMain, upNext: initialUpNext = [] }) => {
 
   const main = allTrailers[currentIndex];
   
-  // Calculate the up next items (the next 3 items, wrapping around)
   const upNext = [
     allTrailers[(currentIndex + 1) % allTrailers.length],
     allTrailers[(currentIndex + 2) % allTrailers.length],
     allTrailers[(currentIndex + 3) % allTrailers.length],
-  ].filter(Boolean); // just in case there are fewer than 4 total trailers
-
+  ].filter(Boolean);
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % allTrailers.length);
   };
@@ -50,10 +48,8 @@ const TrailerSection = ({ main: initialMain, upNext: initialUpNext = [] }) => {
   return (
     <div className="flex bg-black w-full overflow-hidden">
       
-      {/* ── Left: Main Video Panel ── */}
       <div className="flex-[2] relative group">
         
-        {/* Large thumbnail */}
         <div className="w-full aspect-video bg-neutral-900 relative">
           <img
             key={main.thumbnail}
@@ -64,7 +60,6 @@ const TrailerSection = ({ main: initialMain, upNext: initialUpNext = [] }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
         </div>
 
-        {/* Prev / Next arrows (IMDb style - tall borders) */}
         <button
           onClick={handlePrev}
           className="absolute left-0 top-0 bottom-24 w-12 flex items-center justify-center bg-black/30 hover:bg-black/60 text-white transition-all opacity-0 group-hover:opacity-100 border-r border-transparent hover:border-white/30"

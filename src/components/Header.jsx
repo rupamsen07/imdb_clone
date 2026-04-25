@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getWishlist } from '../utils/wishlist';
+import { topPicks, fanFavorites } from '../data/mockData';
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w92';
 
 function Header({ onSearch, onNavigate }) {
@@ -22,15 +21,11 @@ function Header({ onSearch, onNavigate }) {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (searchText.length > 2) {
-        fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchText}`)
-          .then(res => res.json())
-          .then(data => {
-            if (data.results) {
-              setResults(data.results.slice(0, 6));
-              setShowDropdown(true);
-            }
-          })
-          .catch(err => console.error(err));
+        const queryLower = searchText.toLowerCase();
+        const allMovies = [...topPicks, ...fanFavorites];
+        const filtered = allMovies.filter(m => m.title.toLowerCase().includes(queryLower));
+        setResults(filtered.slice(0, 6));
+        setShowDropdown(true);
       } else {
         setResults([]);
         setShowDropdown(false);

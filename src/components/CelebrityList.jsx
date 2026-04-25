@@ -12,7 +12,6 @@ const CelebrityList = ({ celebrities, isBornToday = false }) => {
 
   return (
     <div className="relative group/carousel">
-      {/* Scroll Arrows */}
       <button 
         onClick={() => scroll('left')}
         className="absolute -left-5 top-14 w-12 h-12 bg-black/50 border border-white/50 text-white rounded-full flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10 hover:border-white hover:bg-black/80 shadow-xl"
