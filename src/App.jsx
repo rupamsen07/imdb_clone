@@ -10,6 +10,7 @@ import Card from './components/Card';
 import Hero from './components/Hero';
 import MovieModal from './components/MovieModal';
 import WishlistPage from './components/WishlistPage';
+import TralierBox from './components/tralier-box';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -28,9 +29,7 @@ function App() {
 
   const handleSearch = (query) => {
     if (!query || !query.trim()) return;
-    // Set searchQuery to trigger the search view in App.jsx
     setSearchQuery(query.trim());
-    // Also navigate if desired by user, though the current App logic uses state
     navigate(`/?q=${encodeURIComponent(query.trim())}`);
   };
 
@@ -161,6 +160,28 @@ function App() {
                 rank: index + 1,
                 onClick: () => handleCardClick(m)
               }))} />
+            </section>
+
+            <section className="section container">
+              <h2 className="section-title">Exclusive Trailers <span>Watch the latest clips</span></h2>
+              <div className="flex flex-wrap gap-6">
+                <TralierBox 
+                  title="The Batman: Part II"
+                  subtitle="Explore the dark streets of Gotham once again."
+                  duration="2:45"
+                  image="https://image.tmdb.org/t/p/w500/5VJS9S9N6nN6nN6nN6nN6nN6nN6.jpg"
+                  likes="12k"
+                  reactions="4k"
+                />
+                <TralierBox 
+                  title="Spider-Man: Beyond the Spider-Verse"
+                  subtitle="The multiversal journey reaches its climax."
+                  duration="3:12"
+                  image="https://image.tmdb.org/t/p/w500/8Gxv8YSbtU060v0v0v0v0v0v0v0.jpg"
+                  likes="45k"
+                  reactions="15k"
+                />
+              </div>
             </section>
             
             <section className="section section-alt">
