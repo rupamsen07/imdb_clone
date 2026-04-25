@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * Footer Component
- * Demonstrates: Static UI and social links.
- */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 

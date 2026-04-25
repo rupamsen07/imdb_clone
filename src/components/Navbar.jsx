@@ -1,12 +1,9 @@
 import React from 'react';
 
-/**
- * Navbar Component
- * Demonstrates: Controlled components, props, and callback functions.
- */
+
 const Navbar = ({ searchQuery, setSearchQuery }) => {
   
-  // Handle input change (Controlled component behavior)
+  
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -25,8 +22,8 @@ const Navbar = ({ searchQuery, setSearchQuery }) => {
           <input 
             type="text" 
             placeholder="Search IMDb" 
-            value={searchQuery} // Binds input value to state
-            onChange={handleChange} // Updates state on change
+            value={searchQuery} 
+            onChange={handleChange} 
             className="search-input"
           />
           <button type="submit" className="search-btn">🔍</button>

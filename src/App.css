@@ -31,7 +31,7 @@ body {
   padding: 0 24px;
 }
 
-/* Section Headings */
+
 .section-title {
   font-size: 2rem;
   margin-bottom: 32px;
@@ -57,20 +57,20 @@ body {
   background-color: var(--bg-secondary);
 }
 
-/* Horizontal Scroll */
+
 .horizontal-scroll {
   display: flex;
   overflow-x: auto;
   gap: var(--card-gap);
   padding-bottom: 20px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 .horizontal-scroll::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none; 
 }
 
-/* Grid Layouts */
+
 .trending-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -89,7 +89,7 @@ body {
   }
 }
 
-/* Utility Classes */
+
 .loading-text {
   color: var(--text-secondary);
   text-align: center;
@@ -97,5 +97,5 @@ body {
 }
 
 .title-bar {
-  display: none; /* Removed old bar style */
+  display: none; 
 }

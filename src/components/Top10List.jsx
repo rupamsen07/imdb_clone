@@ -1,10 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-/**
- * Top10List Component
- * Demonstrates: Rendering arrays using .map(), props, and basic event handling.
- */
+
 const Top10List = ({ movies }) => {
   return (
     <div className="top-10-section">
@@ -45,7 +42,7 @@ const Top10List = ({ movies }) => {
           display: none;
         }
 
-        /* Lock Card Height */
+        
         .horizontal-scroll .card {
           height: 420px !important;
           width: 220px !important;
@@ -55,7 +52,7 @@ const Top10List = ({ movies }) => {
           margin-bottom: 0 !important;
         }
 
-        /* Lock Poster Height */
+        
         .horizontal-scroll .card-image-container {
           height: 280px !important;
           width: 100% !important;
@@ -70,7 +67,7 @@ const Top10List = ({ movies }) => {
           object-position: center top !important;
         }
 
-        /* Lock Content Area Height */
+        
         .horizontal-scroll .card-content {
           height: 140px !important;
           padding: 12px !important;

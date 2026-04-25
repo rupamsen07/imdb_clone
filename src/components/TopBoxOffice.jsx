@@ -1,9 +1,6 @@
 import React from 'react';
 
-/**
- * TopBoxOffice Component
- * Demonstrates: List rendering with numeric data and layout structure.
- */
+
 const TopBoxOffice = ({ data }) => {
   return (
     <div className="box-office-container">

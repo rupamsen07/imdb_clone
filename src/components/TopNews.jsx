@@ -1,10 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-/**
- * TopNews Component
- * Demonstrates: Reusing the Card component with different props.
- */
+
 const TopNews = ({ news }) => {
   return (
     <section className="container">

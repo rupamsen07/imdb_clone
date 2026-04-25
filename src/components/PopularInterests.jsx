@@ -16,7 +16,7 @@ function PopularInterests() {
       .then((response) => response.json())
       .then((data) => {
         if (data.genres) {
-          setGenres(data.genres.slice(0, 12)); // Just top 12 for better UI
+          setGenres(data.genres.slice(0, 12)); 
           if (data.genres.length > 0) {
             setSelectedGenre(data.genres[0]);
           }

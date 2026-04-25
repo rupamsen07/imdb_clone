@@ -16,7 +16,7 @@ const MovieModal = ({ movie, onClose }) => {
     
     window.addEventListener('wishlistUpdated', handleSync);
     
-    // Handle Escape key
+    
     const handleEsc = (e) => {
       if (e.key === 'Escape') onClose();
     };

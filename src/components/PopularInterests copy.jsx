@@ -1,9 +1,6 @@
 import React from 'react';
 
-/**
- * PopularInterests Component
- * Demonstrates: Simple list rendering and static UI.
- */
+
 const PopularInterests = ({ interests }) => {
   return (
     <section className="container">
