@@ -10,6 +10,18 @@
   --card-gap: 24px;
 }
 
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #181818;
+  --bg-card: #1c1c1c;
+  --accent-color: #F5C518;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --max-width: 1280px;
+  --section-gap: 64px;
+  --card-gap: 24px;
+}
+
 * {
   margin: 0;
   padding: 0;

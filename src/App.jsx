@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header';
@@ -15,6 +16,7 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w300';
 
 function App() {
+  const navigate = useNavigate();
   const [activeView, setActiveView] = useState('home'); // 'home' or 'wishlist'
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,6 +25,14 @@ function App() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [heroMovie, setHeroMovie] = useState(null);
+
+  const handleSearch = (query) => {
+    if (!query || !query.trim()) return;
+    // Set searchQuery to trigger the search view in App.jsx
+    setSearchQuery(query.trim());
+    // Also navigate if desired by user, though the current App logic uses state
+    navigate(`/?q=${encodeURIComponent(query.trim())}`);
+  };
 
   useEffect(() => {
     const fetchTop10 = async () => {
@@ -94,11 +104,12 @@ function App() {
     setActiveView(view);
     setSearchQuery('');
     window.scrollTo(0, 0);
+    navigate(view === 'home' ? '/' : '/wishlist');
   };
 
   return (
     <div className="app">
-      <Header onSearch={(query) => setSearchQuery(query)} onNavigate={onNavigate} />
+      <Header onSearch={handleSearch} onNavigate={onNavigate} />
 
       <main>
         {activeView === 'wishlist' ? (
