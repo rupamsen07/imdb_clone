@@ -11,6 +11,10 @@ import Hero from './components/Hero';
 import MovieModal from './components/MovieModal';
 import WishlistPage from './components/WishlistPage';
 import TralierBox from './components/tralier-box';
+import SectionHeader from './components/SectionHeader.jsx';
+import FeaturedToday from './components/FeaturedToday.jsx';
+import CelebrityList from './components/CelebrityList.jsx';
+import { featuredToday, popularCelebrities, bornToday } from './data/mockData.js';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -200,6 +204,21 @@ function App() {
                   ))}
                 </div>
               </div>
+            </section>
+
+            <section className="section container">
+              <SectionHeader title="Featured today" subtitle="Top picks from the IMDb editors" />
+              <FeaturedToday items={featuredToday} />
+            </section>
+
+            <section className="section container">
+              <SectionHeader title="Most popular celebrities" />
+              <CelebrityList celebrities={popularCelebrities} />
+            </section>
+
+            <section className="section container">
+              <SectionHeader title="Born today" subtitle="People born on this day" />
+              <CelebrityList celebrities={bornToday} isBornToday={true} />
             </section>
 
             <section className="section container">
