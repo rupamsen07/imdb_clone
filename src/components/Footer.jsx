@@ -10,85 +10,57 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="social-links">
-          <span>TikTok</span>
-          <span>Instagram</span>
-          <span>YouTube</span>
-          <span>Facebook</span>
-          <span>Twitter</span>
-        </div>
-
         <div className="footer-links">
-          <span>Get the IMDb App</span>
           <span>Help</span>
           <span>Site Index</span>
           <span>IMDbPro</span>
           <span>Box Office Mojo</span>
           <span>IMDb Developer</span>
         </div>
-
-        <div className="footer-links">
-          <span>Press Room</span>
-          <span>Advertising</span>
-          <span>Jobs</span>
-          <span>Conditions of Use</span>
-          <span>Privacy Policy</span>
-          <span>Your Ads Privacy Choices</span>
+        <div className="footer-social">
+          <span>TikTok</span>
+          <span>Instagram</span>
+          <span>YouTube</span>
+          <span>Facebook</span>
+          <span>Twitter</span>
         </div>
-
-        <div className="amazon-company">an amazon company</div>
-
-        <div className="copyright">
-          © 1990-{currentYear} by IMDb.com, Inc.
+        <div className="footer-copy">
+          <p>© 1990-{currentYear} by IMDb.com, Inc.</p>
         </div>
       </div>
 
       <style>{`
         .footer {
-          padding: 4rem 0;
+          padding: 64px 0;
+          background: #000;
+          border-top: 1px solid rgba(255,255,255,0.05);
+          color: #fff;
           text-align: center;
-          color: var(--imdb-text);
-          background: var(--imdb-black);
-          border-top: 1px solid #333;
         }
 
-        .social-links {
-          display: flex;
-          justify-content: center;
-          gap: 2rem;
-          margin-bottom: 2rem;
-          font-weight: bold;
-        }
-
-        .footer-links {
+        .footer-links, .footer-social {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
-          gap: 1.5rem;
-          margin-bottom: 1rem;
+          gap: 24px;
+          margin-bottom: 24px;
+        }
+
+        .footer-links span, .footer-social span {
           font-size: 0.9rem;
-          font-weight: 500;
-        }
-
-        .footer-links span {
+          font-weight: 700;
           cursor: pointer;
+          transition: color 0.2s;
         }
 
-        .footer-links span:hover {
-          text-decoration: underline;
+        .footer-links span:hover, .footer-social span:hover {
+          color: var(--accent-color);
         }
 
-        .amazon-company {
-          margin: 2rem 0 1rem;
+        .footer-copy {
+          margin-top: 32px;
           font-size: 0.8rem;
-          color: var(--imdb-text-dim);
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-
-        .copyright {
-          font-size: 0.8rem;
-          color: var(--imdb-text-dim);
+          color: var(--text-secondary);
         }
       `}</style>
     </footer>

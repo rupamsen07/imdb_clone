@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from './Card';
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -49,19 +50,13 @@ function FanFavorites() {
 
         <div className="horizontal-scroll">
           {movies.map((movie) => (
-            <div className="movie-card" key={movie.id}>
-              <div className="card-img-wrap">
-                <img
-                  src={movie.poster_path ? IMG_URL + movie.poster_path : 'https://via.placeholder.com/300x450?text=No+Image'}
-                  alt={movie.title}
-                />
-              </div>
-              <div className="card-info">
-                <div className="card-rating">⭐ {movie.vote_average.toFixed(1)}</div>
-                <h3 className="card-name">{movie.title}</h3>
-                <button className="watchlist-btn">+ Watchlist</button>
-              </div>
-            </div>
+            <Card
+              key={movie.id}
+              title={movie.title}
+              rating={movie.vote_average.toFixed(1)}
+              image={movie.poster_path ? IMG_URL + movie.poster_path : 'https://via.placeholder.com/300x450?text=No+Image'}
+              onClick={() => {}}
+            />
           ))}
         </div>
       </div>
